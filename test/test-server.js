@@ -169,6 +169,48 @@ describe ('Recipes', function () {
       });
     })
   });
+
+  it('should add an item on POST', function () {
+    const newItem = {name: 'cereal', ingredients: ['milk', 'cereal']};
+    return chai.request(app)
+    .post('/recipes')
+    .send(newItem)
+    .then(function(res) {
+      expect(res).to.have.status(201);
+      expect(res).to.be.json;
+      expect(res.body).to.be.a('object');
+      expect(res.body).to.include.keys('id', 'name', 'ingredients');
+      expect(res.body.id).to.not.equal(null);
+      expect(res.body).to.deep.equal(Object.assign(newItem, {id: res.body.id}));
+    });
+  });
+
+  it('should update items on PUT', function() {
+  const updateData = {name: 'foo', ingredients: ['foo foo']};
+  return chai.request(app)
+    .get('/recipes')
+    .then(function(res) {
+      updateData.id = res.body[0].id;
+      return chai.request(app)
+        .put(`/recipes/${updateData.id}`)
+        .send(updateData);
+    })
+    .then(function(res) {
+      expect(res).to.have.status(204);
+    });
+  });
+
+  it('should delete items on DELETE', function() {
+    return chai.request(app)
+      .get('/recipes')
+      .then(function(res) {
+        return chai.request(app)
+          .delete(`/recipes/${res.body[0].id}`);
+      })
+      .then(function(res) {
+        expect(res).to.have.status(204);
+      });
+  });
 });
 
 
