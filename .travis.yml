@@ -1,2 +1,10 @@
 language: node_js
 node_js: node
+deploy: radiant-fjord-78106
+  provider: heroku
+  api_key:
+    secure: l9N2YNR9J5paJGyZ7aeGqsYlmO1Vnd37VPrdAyKScaz5I5drV3Zen3av2wtJKgXLPm1ewtJs1SEUKc5j45x6FtJXdMakzz5PIxWC/roPMLH+yw+gfP0ygS5yL7kMYWzWPoTVde3D5l2Bmdtnj3rZYYpEjnXj4+GwM2cnpJ+Ia4hvbOu6CA7XwOMVfeKq5JqJ93bVqkybcziPagNa9C2fs7KkXYbR89DfDIPua4QLz4Kiw1fSqXUZNFv/ly0YTs6fXmR1rttds6FqYPRf4Y4EOPJv64zvLg4LCED7JXpuyQ99oa4y4aUbxOJe2u7w5k3IFzOHV8MvF87QUWzJv16jyrN+SXQzOMuNPZWBfDfRDYDIO2xtITedwiBtHss7alNNLIJ0EyAzrSC9XX51m2u7qmAADv5dPu9Trg7YNksnT9bpT0oazgl60Ny5Og6gNnACug79+5th5pag7Iu57PV0yRD2CyVI5BpxPbT0OdNTSHfHXN11cxta+yVcALf1pywNk6xPGfGNMXKJBNQSzQMQFVSYF252z5UcOPMxU3GYqt69W09zxBKG8CxbEc0dtwkW/SqPMmHBo1DHK5YvZkdjB6lze9OseEXSncEZ9bbZh9AmuFjoq1+ZQCe2Tm081m5HYaDSHXcKmQ1RYhOxySL1JHaySvN+u7Bpt/ny+5k3dWQ=
+  app: node-shopping-list-integration-tests
+  on:
+    repo: chrisbridges/node-shopping-list-integration-tests
+    branch: feature/tests-for-recipes
